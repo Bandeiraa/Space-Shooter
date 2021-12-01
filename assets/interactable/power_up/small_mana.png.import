@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex"
+path="res://.import/small_mana.png-a5ebeb439860a4a370bc9c0fa5d2b296.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface.png"
-dest_files=[ "res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex" ]
+source_file="res://assets/interactable/power_up/small_mana.png"
+dest_files=[ "res://.import/small_mana.png-a5ebeb439860a4a370bc9c0fa5d2b296.stex" ]
 
 [params]
 

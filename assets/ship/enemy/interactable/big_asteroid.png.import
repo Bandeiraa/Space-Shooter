@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex"
+path="res://.import/big_asteroid.png-f895223d5d834f28b6df2ea8959b029a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface.png"
-dest_files=[ "res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex" ]
+source_file="res://assets/ship/enemy/interactable/big_asteroid.png"
+dest_files=[ "res://.import/big_asteroid.png-f895223d5d834f28b6df2ea8959b029a.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex"
+path="res://.import/ship_type_5.png-2547f06f659367b2a5c2b383063cd35a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface.png"
-dest_files=[ "res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex" ]
+source_file="res://assets/ship/ally/ship_type_5.png"
+dest_files=[ "res://.import/ship_type_5.png-2547f06f659367b2a5c2b383063cd35a.stex" ]
 
 [params]
 

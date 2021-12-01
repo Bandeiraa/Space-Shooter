@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex"
+path="res://.import/enemy_type_26.png-afd96c0ad2293f745e2368614d8da109.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface.png"
-dest_files=[ "res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex" ]
+source_file="res://assets/ship/enemy/epic/enemy_type_26.png"
+dest_files=[ "res://.import/enemy_type_26.png-afd96c0ad2293f745e2368614d8da109.stex" ]
 
 [params]
 

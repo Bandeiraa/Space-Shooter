@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex"
+path="res://.import/enemy_type_15.png-05687059724bb1b47c6656d73e089b2e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface.png"
-dest_files=[ "res://.import/user_interface.png-ebd546145498938201e5340c5422a901.stex" ]
+source_file="res://assets/ship/enemy/rare/enemy_type_15.png"
+dest_files=[ "res://.import/enemy_type_15.png-05687059724bb1b47c6656d73e089b2e.stex" ]
 
 [params]
 

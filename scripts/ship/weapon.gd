@@ -1,7 +1,5 @@
 extends Node2D
 
-const PROJECTILE = preload("res://scenes/player/projectile.tscn")
-
 onready var double_shoot: Timer = get_node("DoubleShoot")
 
 onready var double_weapon_list: Array = [
@@ -14,6 +12,8 @@ onready var double_weapon: Node2D = get_node("DoubleWeapon")
 
 var can_double_shoot: bool = false
 
+export(PackedScene) var projectile_scene
+ 
 func shoot() -> void:
 	if can_double_shoot:
 		for weapon in double_weapon_list:
@@ -25,8 +25,9 @@ func shoot() -> void:
 		
 		
 func spawn_shoot(shoot_position: Vector2) -> void:
-	var projectile: Object = PROJECTILE.instance()
+	var projectile: ShipProjectile = projectile_scene.instance()
 	projectile.global_position = shoot_position
+	projectile.direction = -1
 	get_tree().root.call_deferred("add_child", projectile)
 	
 	

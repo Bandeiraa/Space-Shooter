@@ -1,4 +1,5 @@
 extends Area2D
+class_name ShipProjectile
 
 onready var sprite: Sprite = get_node("Texture")
 

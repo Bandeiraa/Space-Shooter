@@ -1,15 +1,24 @@
 extends Node
 
+signal can_attack
+
 onready var speed_timer: Timer = get_node("SpeedTimer")
+onready var attack_timer: Timer = get_node("AttackTimer")
 
 var hits_blocked: int = 0
 
 export(float) var health
 
+export(float) var attack_cooldown
+
 export(float) var speed
 export(float) var initial_speed
 export(float) var speed_bonus_duration
 
+func attacking() -> void:
+	attack_timer.start(attack_cooldown)
+	
+	
 func update_shield(shield: int) -> void:
 	hits_blocked += shield
 	
@@ -36,3 +45,7 @@ func update_speed(speed_bonus: float) -> void:
 	
 func on_speed_timer_timeout() -> void:
 	speed = initial_speed
+
+
+func on_attack_timer_timeout() -> void:
+	emit_signal("can_attack")

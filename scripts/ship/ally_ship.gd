@@ -8,13 +8,14 @@ onready var sprite: Sprite = get_node("Texture")
 
 onready var stats: Node = get_node("ShipStats")
 
-var can_attack: bool = true
+var attack_flag: bool = true
 
 var velocity: Vector2
 
 export(String) var ship_texture
 
 func _ready() -> void:
+	var _attack = stats.connect("can_attack", self, "can_attack")
 	sprite.texture = load(ship_texture)
 	
 	
@@ -29,12 +30,14 @@ func _physics_process(_delta: float) -> void:
 func move() -> void:
 	var input: Vector2 = Vector2.ZERO
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-	velocity = input
+	velocity = input * stats.speed
 	
 	
 func attack() -> void:
-	if Input.is_action_just_pressed("Shoot") and can_attack:
+	if Input.is_action_just_pressed("Shoot") and attack_flag:
 		weapon.shoot()
+		stats.attacking()
+		attack_flag = false
 		
 		
 func animate() -> void:
@@ -73,3 +76,7 @@ func on_ship_area_entered(area: Object) -> void:
 				
 	if area.is_in_group("enemy_projectile"):
 		stats.update_health(area.damage)
+		
+		
+func can_attack() -> void:
+	attack_flag = true

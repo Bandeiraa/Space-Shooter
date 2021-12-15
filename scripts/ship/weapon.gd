@@ -1,11 +1,10 @@
 extends Node2D
 
-#const PROJECTILE = preload("")
+#const PROJECTILE = preload("res://scenes/ally_ship/ship_template.tscn")
 
 onready var double_shoot: Timer = get_node("DoubleShoot")
 
-onready var weapons_list: Array = [
-	get_node("SingleWeapon/Weapon"),
+onready var double_weapon_list: Array = [
 	get_node("DoubleWeapon/Weapon1"),
 	get_node("DoubleWeapon/Weapon2")
 ]
@@ -17,27 +16,14 @@ var can_double_shoot: bool = false
 
 export(float) var double_shoot_time
 
-export(Array, Vector2) var spawn_position
-
-func _ready() -> void:
-	update_weapon_position()
-	
-	
-func update_weapon_position() -> void:
-	for weapon in weapons_list.size():
-		weapons_list[weapon].position = spawn_position[weapon]
-		
-		
 func shoot() -> void:
 	if can_double_shoot:
-		var index: int = 1
-		for _i in spawn_position.size():
-			spawn_shoot(spawn_position[index])
-			index += 1
+		for weapon in double_weapon_list:
+			spawn_shoot(weapon.global_position)
 			
 		return
 		
-	spawn_shoot(weapons_list[0].global_position)
+	spawn_shoot(single_weapon.get_node("Weapon").global_position)
 		
 		
 func spawn_shoot(_shoot_position: Vector2) -> void:

@@ -25,7 +25,7 @@ func update_shield(shield: int) -> void:
 	
 	
 func update_health(damage: int) -> void:
-	if hits_blocked > 0:
+	if hits_blocked == 0:
 		health -= damage
 		if health <= 0:
 			queue_free()

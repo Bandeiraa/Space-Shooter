@@ -81,7 +81,11 @@ func on_ship_area_entered(area: Object) -> void:
 				
 	if area.is_in_group("enemy_projectile"):
 		stats.update_health(area.damage)
-		queue_free()
+		area.queue_free()
+		
+	if area.is_in_group("enemy_ship"):
+		stats.update_health(area.damage)
+		area.queue_free()
 		
 		
 func can_attack() -> void:

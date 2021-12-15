@@ -339,7 +339,7 @@ visible = false
 
 [node name="ShipStats" parent="." index="5"]
 health = 5.0
-attack_cooldown = 1.5
+attack_cooldown = 0.3
 speed = 1.0
 initial_speed = 1.0
 speed_bonus_duration = 10.0

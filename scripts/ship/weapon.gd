@@ -25,7 +25,7 @@ func shoot() -> void:
 		
 		
 func spawn_shoot(shoot_position: Vector2) -> void:
-	var projectile: ShipProjectile = projectile_scene.instance()
+	var projectile: Projectile = projectile_scene.instance()
 	projectile.global_position = shoot_position
 	projectile.direction = -1
 	get_tree().root.call_deferred("add_child", projectile)

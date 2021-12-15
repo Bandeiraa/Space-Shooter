@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/enemy/template/enemy_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/ship/enemy/common/enemy_type_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/ship_propellant/propellant_v1_type_2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/enemy/normal/enemy_normal_1_projectile.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.5, 2.5 )
+
+[node name="EnemyNormal1" instance=ExtResource( 1 )]
+projectile_scene = ExtResource( 4 )
+speed = 1.0
+damage = 1.0
+attack_cooldown = 1.5
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Notifier" parent="." index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Weapon1" parent="WeaponManager" index="0"]
+position = Vector2( 0, 5 )
+
+[node name="Texture" parent="ShipPropellant/LeftPropellant" index="0"]
+position = Vector2( 0, -7 )
+texture = ExtResource( 3 )
+flip_v = true
+
+[node name="RightPropellant" parent="ShipPropellant" index="1"]
+visible = false

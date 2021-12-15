@@ -14,8 +14,6 @@ onready var double_weapon: Node2D = get_node("DoubleWeapon")
 
 var can_double_shoot: bool = false
 
-export(float) var double_shoot_time
-
 func shoot() -> void:
 	if can_double_shoot:
 		for weapon in double_weapon_list:
@@ -32,7 +30,7 @@ func spawn_shoot(shoot_position: Vector2) -> void:
 	get_tree().root.call_deferred("add_child", projectile)
 	
 	
-func enable_double_shoot() -> void:
+func enable_double_shoot(double_shoot_time: float) -> void:
 	can_double_shoot = true
 	var time_left: float = double_shoot.time_left
 	double_shoot.start(time_left + double_shoot_time)

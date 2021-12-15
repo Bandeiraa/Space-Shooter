@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/ship/ally_ship.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ship/weapon.gd" type="Script" id=2]
 [ext_resource path="res://scripts/ship/propellant.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ship/stats.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -407,5 +408,11 @@ script = ExtResource( 2 )
 
 [node name="DoubleShoot" type="Timer" parent="WeaponManager"]
 
+[node name="ShipStats" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="SpeedTimer" type="Timer" parent="ShipStats"]
+
 [connection signal="area_entered" from="." to="." method="on_ship_area_entered"]
 [connection signal="timeout" from="WeaponManager/DoubleShoot" to="WeaponManager" method="on_double_shoot_timeout"]
+[connection signal="timeout" from="ShipStats/SpeedTimer" to="ShipStats" method="on_speed_timer_timeout"]

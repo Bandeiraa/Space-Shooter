@@ -6,6 +6,8 @@ onready var animation: AnimationPlayer = get_node("Animation")
 onready var weapon: Node2D = get_node("WeaponManager")
 onready var sprite: Sprite = get_node("Texture")
 
+onready var stats: Node = get_node("ShipStats")
+
 var can_attack: bool = true
 
 var velocity: Vector2
@@ -60,4 +62,14 @@ func on_ship_area_entered(area: Object) -> void:
 	if area.is_in_group("collectable"):
 		match area.collectale_name:
 			"double_shoot":
-				pass
+				weapon.enable_double_shoot(area.double_shoot_duration)
+				
+			"shield":
+				stats.update_shield(area.shield_size)
+				
+			"speed":
+				stats.update_speed(area.speed_bonus)
+				
+				
+	if area.is_in_group("enemy_projectile"):
+		stats.update_health(area.damage)

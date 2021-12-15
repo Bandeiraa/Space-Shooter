@@ -1,7 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Projectile" type="Area2D"]
+[ext_resource path="res://scripts/ship/projectile.gd" type="Script" id=1]
+
+[node name="Projectile" type="Area2D" groups=["player_projectile"]]
+script = ExtResource( 1 )
 
 [node name="Texture" type="Sprite" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="Notifier" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="Notifier" to="." method="on_screen_exited"]

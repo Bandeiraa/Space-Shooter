@@ -7,9 +7,10 @@ var collectable_value: float
 export(Array, String) var texture_list
 export(String) var collectable_name
 
+export(Array, int) var spawn_chance
+
 export(float) var min_value
 export(float) var max_value
-
 export(float) var speed
 
 export(bool) var customize_texture = false

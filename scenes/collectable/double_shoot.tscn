@@ -8,6 +8,7 @@ extents = Vector2( 4, 4 )
 
 [node name="DoubleShoot" instance=ExtResource( 1 )]
 collectable_name = "double_shoot"
+spawn_chance = [ 96, 100 ]
 min_value = 5.0
 max_value = 10.0
 speed = 1.0

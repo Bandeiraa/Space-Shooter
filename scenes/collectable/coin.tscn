@@ -9,6 +9,7 @@ extents = Vector2( 4, 4 )
 [node name="Coin" instance=ExtResource( 2 )]
 texture_list = [ "res://assets/interactable/coin/coin_type_1.png", "res://assets/interactable/coin/coin_type_2.png", "res://assets/interactable/coin/coin_type_3.png", "res://assets/interactable/coin/coin_type_4.png" ]
 collectable_name = "coin"
+spawn_chance = [ 1, 70 ]
 min_value = 1.0
 max_value = 5.0
 speed = 1.5

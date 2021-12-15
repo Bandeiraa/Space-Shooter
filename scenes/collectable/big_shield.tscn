@@ -8,6 +8,7 @@ extents = Vector2( 4, 4 )
 
 [node name="BigShield" instance=ExtResource( 2 )]
 collectable_name = "shield"
+spawn_chance = [ 86, 90 ]
 min_value = 4.0
 max_value = 6.0
 speed = 1.5

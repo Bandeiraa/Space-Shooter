@@ -1,6 +1,6 @@
 extends Node2D
 
-#const PROJECTILE = preload("res://scenes/ally_ship/ship_template.tscn")
+const PROJECTILE = preload("res://scenes/player/projectile.tscn")
 
 onready var double_shoot: Timer = get_node("DoubleShoot")
 
@@ -26,11 +26,10 @@ func shoot() -> void:
 	spawn_shoot(single_weapon.get_node("Weapon").global_position)
 		
 		
-func spawn_shoot(_shoot_position: Vector2) -> void:
-	#var projectile: Object = PROJECTILE.instance()
-	#projectile.global_position = shoot_position
-	#get_tree().root.call_deferred("add_child", projectile)
-	pass
+func spawn_shoot(shoot_position: Vector2) -> void:
+	var projectile: Object = PROJECTILE.instance()
+	projectile.global_position = shoot_position
+	get_tree().root.call_deferred("add_child", projectile)
 	
 	
 func enable_double_shoot() -> void:

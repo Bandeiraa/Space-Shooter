@@ -1,5 +1,7 @@
 extends Area2D
 
+onready var x_screensize: int = get_viewport().get_visible_rect().size.x
+
 onready var animation: AnimationPlayer = get_node("Animation")
 onready var weapon: Node2D = get_node("WeaponManager")
 onready var sprite: Sprite = get_node("Texture")
@@ -18,6 +20,7 @@ func _physics_process(_delta: float) -> void:
 	move()
 	attack()
 	animate()
+	verify_position()
 	translate(velocity)
 	
 	
@@ -29,7 +32,7 @@ func move() -> void:
 	
 func attack() -> void:
 	if Input.is_action_just_pressed("Shoot") and can_attack:
-		weapon.spawn_shoot()
+		weapon.shoot()
 		
 		
 func animate() -> void:
@@ -41,6 +44,18 @@ func animate() -> void:
 		animation.play("idle")
 		
 		
+func verify_position() -> void:
+	var x_form = get_transform()
+	
+	if x_form.origin.x > x_screensize:
+		x_form.origin.x = 0
+		
+	if x_form.origin.x < 0:
+		x_form.origin.x = x_screensize
+		
+	set_transform(x_form)
+	
+	
 func on_ship_area_entered(area: Object) -> void:
 	if area.is_in_group("collectable"):
 		match area.collectale_name:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/small_mana.png-a5ebeb439860a4a370bc9c0fa5d2b296.stex"
+path="res://.import/big_shield.png-ee2907a05173be54d00c3893a6e63394.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactable/power_up/small_mana.png"
-dest_files=[ "res://.import/small_mana.png-a5ebeb439860a4a370bc9c0fa5d2b296.stex" ]
+source_file="res://assets/interactable/power_up/big_shield.png"
+dest_files=[ "res://.import/big_shield.png-ee2907a05173be54d00c3893a6e63394.stex" ]
 
 [params]
 

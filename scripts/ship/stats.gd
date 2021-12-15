@@ -5,6 +5,7 @@ signal can_attack
 onready var speed_timer: Timer = get_node("SpeedTimer")
 onready var attack_timer: Timer = get_node("AttackTimer")
 
+var coin: int = 0
 var hits_blocked: int = 0
 
 export(float) var health
@@ -41,6 +42,10 @@ func update_speed(speed_bonus: float) -> void:
 		
 	speed += speed_bonus
 	speed_timer.start()
+	
+	
+func update_coin(coin_amount: int) -> void:
+	coin += coin_amount
 	
 	
 func on_speed_timer_timeout() -> void:

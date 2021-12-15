@@ -63,19 +63,25 @@ func verify_position() -> void:
 	
 func on_ship_area_entered(area: Object) -> void:
 	if area.is_in_group("collectable"):
-		match area.collectale_name:
+		match area.collectable_name:
 			"double_shoot":
-				weapon.enable_double_shoot(area.double_shoot_duration)
+				weapon.enable_double_shoot(area.collectable_value)
 				
 			"shield":
-				stats.update_shield(area.shield_size)
+				stats.update_shield(area.collectable_value)
 				
 			"speed":
-				stats.update_speed(area.speed_bonus)
+				stats.update_speed(area.collectable_value)
+				
+			"coin":
+				stats.update_coin(area.collectable_value)
+				
+		area.queue_free()
 				
 				
 	if area.is_in_group("enemy_projectile"):
 		stats.update_health(area.damage)
+		queue_free()
 		
 		
 func can_attack() -> void:

@@ -9,6 +9,7 @@ onready var weapon_list: Array = [
 ]
 
 export(PackedScene) var projectile_scene
+export(PackedScene) var explosion
 
 export(float) var speed
 export(float) var health
@@ -47,8 +48,15 @@ func spawn_projectile(weapon: Position2D) -> void:
 func update_health(projectile_damage: int) -> void:
 	health -= projectile_damage
 	if health <= 0:
+		instance_explosion()
 		queue_free()
 		
 		
+func instance_explosion() -> void:
+	var explosion_scene: Object = explosion.instance()
+	explosion_scene.global_position = global_position
+	get_tree().root.call_deferred("add_child", explosion_scene)
+	
+	
 func on_screen_exited() -> void:
 	queue_free()

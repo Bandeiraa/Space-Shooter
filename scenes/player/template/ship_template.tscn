@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/ship/ally_ship.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ship/weapon.gd" type="Script" id=2]
 [ext_resource path="res://scripts/ship/propellant.gd" type="Script" id=3]
 [ext_resource path="res://scripts/ship/stats.gd" type="Script" id=4]
+[ext_resource path="res://scenes/effect/explosion_effect.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -370,6 +371,7 @@ tracks/1/keys = {
 [node name="ShipTemplate" type="Area2D"]
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
+explosion = ExtResource( 5 )
 
 [node name="Texture" type="Sprite" parent="."]
 hframes = 3

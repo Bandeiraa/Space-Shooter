@@ -12,6 +12,8 @@ var attack_flag: bool = true
 
 var velocity: Vector2
 
+export(PackedScene) var explosion
+
 export(String) var ship_texture
 
 func _ready() -> void:
@@ -94,4 +96,11 @@ func can_attack() -> void:
 	
 	
 func kill() -> void:
+	instance_explosion()
 	queue_free()
+	
+	
+func instance_explosion() -> void:
+	var explosion_scene: Object = explosion.instance()
+	explosion_scene.global_position = global_position
+	get_tree().root.call_deferred("add_child", explosion_scene)

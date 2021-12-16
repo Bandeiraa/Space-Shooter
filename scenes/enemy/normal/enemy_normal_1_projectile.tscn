@@ -8,7 +8,7 @@ extents = Vector2( 0.5, 1.5 )
 
 [node name="EnemyNormalProjectile" instance=ExtResource( 2 )]
 damage = 10.0
-speed = -1.5
+speed = -0.75
 
 [node name="Collision" parent="." index="0"]
 shape = SubResource( 1 )

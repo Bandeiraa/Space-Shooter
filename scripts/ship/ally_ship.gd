@@ -29,9 +29,9 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func move() -> void:
-	var input: Vector2 = Vector2.ZERO
-	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-	velocity = input * stats.speed
+	var direction: Vector2 = Vector2.ZERO
+	direction.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	velocity = (direction * stats.initial_speed) * stats.speed
 	
 	
 func attack() -> void:

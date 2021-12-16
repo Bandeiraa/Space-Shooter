@@ -48,7 +48,7 @@ func update_speed(speed_bonus: float) -> void:
 		return
 		
 	speed += speed_bonus
-	speed_timer.start()
+	speed_timer.start(speed_bonus_duration)
 	
 	
 func update_coin(coin_amount: int) -> void:

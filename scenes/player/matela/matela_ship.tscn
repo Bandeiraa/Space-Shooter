@@ -342,4 +342,4 @@ health = 50
 attack_cooldown = 0.3
 speed = 1.0
 initial_speed = 1.0
-speed_bonus_duration = 10.0
+speed_bonus_duration = 6.5

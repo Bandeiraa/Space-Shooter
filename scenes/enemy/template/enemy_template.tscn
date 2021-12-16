@@ -71,6 +71,7 @@ tracks/1/keys = {
 }
 
 [node name="EnemyTemplate" type="Area2D" groups=["enemy_ship"]]
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
 spawn_chance = [ 0, 0 ]
 

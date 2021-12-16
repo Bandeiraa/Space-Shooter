@@ -9,8 +9,8 @@ extents = Vector2( 4, 4 )
 [node name="SpeedUp" instance=ExtResource( 2 )]
 collectable_name = "speed"
 spawn_chance = [ 91, 95 ]
-min_value = 0.5
-max_value = 1.5
+min_value = 1.15
+max_value = 1.65
 speed = 2.5
 
 [node name="Texture" parent="." index="0"]

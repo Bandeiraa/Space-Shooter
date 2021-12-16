@@ -20,9 +20,15 @@ func verify_direction() -> void:
 		
 		
 func _physics_process(_delta: float) -> void:
-	velocity.y = direction * speed
-	translate(velocity)
+	position -= transform.y * speed
 	
 	
 func on_screen_exited() -> void:
 	queue_free()
+
+
+func on_area_entered(area) -> void:
+	if area.is_in_group("enemy_ship"):
+		area.update_health(damage)
+		
+		queue_free()

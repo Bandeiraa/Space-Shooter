@@ -338,7 +338,7 @@ projectile_scene = ExtResource( 3 )
 visible = false
 
 [node name="ShipStats" parent="." index="5"]
-health = 5.0
+health = 50
 attack_cooldown = 0.3
 speed = 1.0
 initial_speed = 1.0

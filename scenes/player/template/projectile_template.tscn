@@ -11,4 +11,5 @@ script = ExtResource( 1 )
 
 [node name="Notifier" type="VisibilityNotifier2D" parent="."]
 
+[connection signal="area_entered" from="." to="." method="on_area_entered"]
 [connection signal="screen_exited" from="Notifier" to="." method="on_screen_exited"]

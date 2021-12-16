@@ -12,7 +12,7 @@ extents = Vector2( 2.5, 2.5 )
 projectile_scene = ExtResource( 4 )
 speed = 1.0
 health = 3.0
-damage = 1.0
+damage = 10.0
 attack_cooldown = 1.5
 spawn_chance = [ 1, 50 ]
 

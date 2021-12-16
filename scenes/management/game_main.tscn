@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/player/matela/matela_ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/background.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/collectable/big_shield.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/collectable/speed_up.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/collectable/double_shoot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/interface/interface.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node"]
 
@@ -25,3 +26,5 @@ ojects_list = [ ExtResource( 4 ), ExtResource( 5 ) ]
 [node name="Collectable" parent="." instance=ExtResource( 3 )]
 spawn_cooldown = 3.5
 ojects_list = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ) ]
+
+[node name="Interface" parent="." instance=ExtResource( 11 )]

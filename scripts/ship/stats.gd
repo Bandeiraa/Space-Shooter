@@ -10,7 +10,7 @@ var coin: int = 0
 
 var hits_blocked: float = 0
 
-export(float) var health
+export(int) var health
 
 export(float) var attack_cooldown
 
@@ -18,6 +18,10 @@ export(float) var speed
 export(float) var initial_speed
 export(float) var speed_bonus_duration
 
+func _ready() -> void:
+	get_tree().call_group("health_bar", "initialize_health_bar", health)
+	
+	
 func attacking() -> void:
 	attack_timer.start(attack_cooldown)
 	
@@ -29,7 +33,7 @@ func update_shield(shield: int) -> void:
 func update_health(damage: int) -> void:
 	if hits_blocked == 0:
 		health -= damage
-		print(health)
+		get_tree().call_group("health_bar", "update_health_bar", health)
 		if health <= 0:
 			emit_signal("kill")
 			

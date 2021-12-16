@@ -24,11 +24,15 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func on_screen_exited() -> void:
-	queue_free()
-
-
+	kill()
+	
+	
 func on_area_entered(area) -> void:
 	if area.is_in_group("enemy_ship"):
 		area.update_health(damage)
 		
-		queue_free()
+		kill()
+		
+		
+func kill() -> void:
+	queue_free()

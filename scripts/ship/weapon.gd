@@ -1,7 +1,8 @@
 extends Node2D
 
-onready var double_shoot: Timer = get_node("DoubleShoot")
+onready var stats: Node = get_parent().get_node("ShipStats")
 
+onready var double_shoot: Timer = get_node("DoubleShoot")
 onready var double_weapon_list: Array = [
 	get_node("DoubleWeapon/Weapon1"),
 	get_node("DoubleWeapon/Weapon2")
@@ -26,6 +27,7 @@ func shoot() -> void:
 		
 func spawn_shoot(shoot_position: Vector2) -> void:
 	var projectile: Projectile = projectile_scene.instance()
+	var _kill_projectile = stats.connect("kill", projectile, "kill")
 	projectile.global_position = shoot_position
 	projectile.direction = -1
 	get_tree().root.call_deferred("add_child", projectile)

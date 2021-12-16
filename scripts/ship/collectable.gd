@@ -7,6 +7,8 @@ var collectable_value: float
 export(Array, String) var texture_list
 export(String) var collectable_name
 
+export(PackedScene) var explosion
+
 export(Array, int) var spawn_chance
 
 export(float) var min_value
@@ -29,3 +31,14 @@ func _physics_process(_delta: float) -> void:
 	
 func on_screen_exited() -> void:
 	queue_free()
+	
+	
+func kill() -> void:
+	instance_explosion()
+	queue_free()
+	
+	
+func instance_explosion() -> void:
+	var explosion_scene: Object = explosion.instance()
+	explosion_scene.global_position = global_position
+	get_tree().root.call_deferred("add_child", explosion_scene)

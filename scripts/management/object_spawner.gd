@@ -1,5 +1,7 @@
 extends Node2D
 
+signal kill
+
 onready var timer: Timer = get_node("SpawnTimer")
 
 export(float) var spawn_cooldown
@@ -23,6 +25,7 @@ func select_object() -> void:
 			
 			
 func spawn_object(object: Object) -> void:
+	var _kill = connect("kill", object, "kill")
 	var random_position: int = randi() % 97 + 16
 	object.global_position = Vector2(random_position, -32)
 	get_tree().root.call_deferred("add_child", object)
@@ -31,3 +34,8 @@ func spawn_object(object: Object) -> void:
 func on_timer_timeout() -> void:
 	select_object()
 	timer.start(spawn_cooldown)
+	
+	
+func game_over() -> void:
+	emit_signal("kill")
+	timer.stop()

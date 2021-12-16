@@ -1,5 +1,7 @@
 extends Area2D
 
+signal kill_projectile
+
 onready var attack_timer: Timer = get_node("AttackTimer")
 
 onready var weapon_list: Array = [
@@ -40,6 +42,7 @@ func verify_weapon() -> void:
 	
 func spawn_projectile(weapon: Position2D) -> void:
 	var projectile: Projectile = projectile_scene.instance()
+	var _kill_projectile = connect("kill_projectile", projectile, "kill")
 	projectile.global_position = weapon.global_position
 	projectile.direction = 1
 	get_tree().root.call_deferred("add_child", projectile)
@@ -48,10 +51,15 @@ func spawn_projectile(weapon: Position2D) -> void:
 func update_health(projectile_damage: int) -> void:
 	health -= projectile_damage
 	if health <= 0:
-		instance_explosion()
-		queue_free()
+		kill()
 		
 		
+func kill() -> void:
+	emit_signal("kill_projectile")
+	instance_explosion()
+	queue_free()
+	
+	
 func instance_explosion() -> void:
 	var explosion_scene: Object = explosion.instance()
 	explosion_scene.global_position = global_position

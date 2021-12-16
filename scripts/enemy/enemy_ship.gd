@@ -11,8 +11,11 @@ onready var weapon_list: Array = [
 export(PackedScene) var projectile_scene
 
 export(float) var speed
+export(float) var health
 export(float) var damage
 export(float) var attack_cooldown
+
+export(Array, int) var spawn_chance
 
 func _physics_process(_delta: float) -> void:
 	translate(Vector2(0, speed))
@@ -39,3 +42,14 @@ func spawn_projectile(weapon: Position2D) -> void:
 	projectile.global_position = weapon.global_position
 	projectile.direction = 1
 	get_tree().root.call_deferred("add_child", projectile)
+	
+	
+func on_area_entered(area) -> void:
+	if area.is_in_group("player_projectile"):
+		health -= area.damage
+		if health <= 0:
+			queue_free()
+
+
+func on_screen_exited() -> void:
+	queue_free()

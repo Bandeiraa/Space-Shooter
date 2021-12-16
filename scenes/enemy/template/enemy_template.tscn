@@ -72,6 +72,7 @@ tracks/1/keys = {
 
 [node name="EnemyTemplate" type="Area2D" groups=["enemy_ship"]]
 script = ExtResource( 1 )
+spawn_chance = [ 0, 0 ]
 
 [node name="Texture" type="Sprite" parent="."]
 
@@ -108,5 +109,7 @@ autoplay = "propellant"
 anims/RESET = SubResource( 2 )
 anims/propellant = SubResource( 1 )
 
+[connection signal="area_entered" from="." to="." method="on_area_entered"]
 [connection signal="screen_entered" from="Notifier" to="." method="on_screen_entered"]
+[connection signal="screen_exited" from="Notifier" to="." method="on_screen_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="on_attack_timer_timeout"]

@@ -18,7 +18,6 @@ export(bool) var customize_texture = false
 func _ready() -> void:
 	randomize()
 	collectable_value = rand_range(min_value, max_value)
-	
 	if customize_texture:
 		var random_number: int = randi() % texture_list.size()
 		collectable_texture.texture = load(texture_list[random_number])

@@ -16,6 +16,7 @@ export(String) var ship_texture
 
 func _ready() -> void:
 	var _attack = stats.connect("can_attack", self, "can_attack")
+	var _kill = stats.connect("kill", self, "kill")
 	sprite.texture = load(ship_texture)
 	
 	
@@ -90,3 +91,7 @@ func on_ship_area_entered(area: Object) -> void:
 		
 func can_attack() -> void:
 	attack_flag = true
+	
+	
+func kill() -> void:
+	queue_free()

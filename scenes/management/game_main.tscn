@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/player/matela/matela_ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/management/collectable_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/management/object_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/enemy/normal/enemy_normal_1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemy/normal/enemy_normal_2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/collectable/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/collectable/small_shield.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/collectable/big_shield.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/collectable/speed_up.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/collectable/double_shoot.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 
@@ -12,7 +18,10 @@
 [node name="MatelaShip" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 240 )
 
-[node name="CollectableSpawner" parent="." instance=ExtResource( 3 )]
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+spawn_cooldown = 2.0
+ojects_list = [ ExtResource( 4 ), ExtResource( 5 ) ]
 
-[node name="EnemyNormal1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 44, -18 )
+[node name="Collectable" parent="." instance=ExtResource( 3 )]
+spawn_cooldown = 3.5
+ojects_list = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ) ]

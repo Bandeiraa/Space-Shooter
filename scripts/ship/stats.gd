@@ -1,12 +1,14 @@
 extends Node
 
+signal kill
 signal can_attack
 
 onready var speed_timer: Timer = get_node("SpeedTimer")
 onready var attack_timer: Timer = get_node("AttackTimer")
 
 var coin: int = 0
-var hits_blocked: int = 0
+
+var hits_blocked: float = 0
 
 export(float) var health
 
@@ -27,8 +29,9 @@ func update_shield(shield: int) -> void:
 func update_health(damage: int) -> void:
 	if hits_blocked == 0:
 		health -= damage
+		print(health)
 		if health <= 0:
-			queue_free()
+			emit_signal("kill")
 			
 		return
 		

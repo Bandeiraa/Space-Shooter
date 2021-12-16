@@ -33,7 +33,7 @@ func update_shield(shield: int) -> void:
 func update_health(damage: int) -> void:
 	if hits_blocked == 0:
 		health -= damage
-		get_tree().call_group("health_bar", "update_health_bar", health)
+		get_tree().call_group("health_bar", "on_health_changed", health)
 		if health <= 0:
 			emit_signal("kill")
 			

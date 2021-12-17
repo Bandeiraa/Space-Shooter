@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://scripts/management/projectile.gd"
+}, {
+"base": "Camera2D",
+"class": "ShakeCamera",
+"language": "GDScript",
+"path": "res://scripts/management/camera.gd"
 } ]
 _global_script_class_icons={
-"Projectile": ""
+"Projectile": "",
+"ShakeCamera": ""
 }
 
 [application]

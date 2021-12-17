@@ -1,6 +1,7 @@
 extends Area2D
 
 signal kill_projectile
+signal camera_shake
 
 onready var attack_timer: Timer = get_node("AttackTimer")
 
@@ -55,6 +56,7 @@ func update_health(projectile_damage: int) -> void:
 		
 		
 func kill() -> void:
+	emit_signal("camera_shake", 2, 0.4)
 	emit_signal("kill_projectile")
 	instance_explosion()
 	queue_free()

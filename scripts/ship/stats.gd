@@ -2,6 +2,7 @@ extends Node
 
 signal kill
 signal can_attack
+signal camera_shake
 
 onready var speed_timer: Timer = get_node("SpeedTimer")
 onready var attack_timer: Timer = get_node("AttackTimer")
@@ -33,6 +34,7 @@ func update_shield(shield: int) -> void:
 func update_health(damage: int) -> void:
 	if hits_blocked == 0:
 		health -= damage
+		emit_signal("camera_shake", 2, 0.4)
 		get_tree().call_group("health_bar", "on_health_changed", health)
 		if health <= 0:
 			emit_signal("kill")

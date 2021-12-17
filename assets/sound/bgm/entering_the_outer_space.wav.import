@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/entering_the_outer_space.wav-927a51ab361f0cfc68c4292bac2ca026.sample"
+
+[deps]
+
+source_file="res://assets/sound/bgm/entering_the_outer_space.wav"
+dest_files=[ "res://.import/entering_the_outer_space.wav-927a51ab361f0cfc68c4292bac2ca026.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

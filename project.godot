@@ -30,6 +30,10 @@ config/name="Space Shooter 2.0"
 run/main_scene="res://scenes/management/game_main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Bgm="*res://scenes/management/bgm.tscn"
+
 [display]
 
 window/size/width=128

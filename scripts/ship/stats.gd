@@ -3,6 +3,7 @@ extends Node
 signal kill
 signal can_attack
 signal camera_shake
+signal spawn_effect
 
 onready var speed_timer: Timer = get_node("SpeedTimer")
 onready var attack_timer: Timer = get_node("AttackTimer")
@@ -10,6 +11,8 @@ onready var attack_timer: Timer = get_node("AttackTimer")
 var coin: int = 0
 
 var hits_blocked: float = 0
+
+var on_speed_boost: bool = false
 
 export(int) var health
 
@@ -45,12 +48,14 @@ func update_health(damage: int) -> void:
 	
 	
 func update_speed(speed_bonus: float) -> void:
-	if speed_timer.time_left != 0:
+	if on_speed_boost:
 		speed_timer.start(speed_timer.time_left + speed_bonus_duration)
 		return
 		
 	speed += speed_bonus
 	speed_timer.start(speed_bonus_duration)
+	emit_signal("spawn_effect")
+	on_speed_boost = true
 	
 	
 func update_coin(coin_amount: int) -> void:
@@ -59,7 +64,9 @@ func update_coin(coin_amount: int) -> void:
 	
 func on_speed_timer_timeout() -> void:
 	speed = initial_speed
-
-
+	on_speed_boost = false
+	emit_signal("spawn_effect")
+	
+	
 func on_attack_timer_timeout() -> void:
 	emit_signal("can_attack")

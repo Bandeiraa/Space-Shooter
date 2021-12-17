@@ -27,7 +27,7 @@ spawn_cooldown = 2.0
 ojects_list = [ ExtResource( 4 ), ExtResource( 5 ) ]
 
 [node name="Collectable" parent="." instance=ExtResource( 3 )]
-spawn_cooldown = 3.5
+spawn_cooldown = 0.5
 ojects_list = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ) ]
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]

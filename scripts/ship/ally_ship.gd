@@ -9,16 +9,19 @@ onready var sprite: Sprite = get_node("Texture")
 onready var stats: Node = get_node("ShipStats")
 
 var attack_flag: bool = true
+var effect_flag: bool = false
 
 var velocity: Vector2
 
 export(PackedScene) var explosion
+export(PackedScene) var ship_effect
 
 export(String) var ship_texture
 
 func _ready() -> void:
 	var _attack = stats.connect("can_attack", self, "can_attack")
 	var _kill = stats.connect("kill", self, "kill")
+	var _effect = stats.connect("spawn_effect", self, "spawn_effect_flag")
 	sprite.texture = load(ship_texture)
 	
 	
@@ -28,8 +31,10 @@ func _physics_process(_delta: float) -> void:
 	animate()
 	verify_position()
 	translate(velocity)
-	
-	
+	if effect_flag:
+		instance_ship_effect()
+		
+		
 func move() -> void:
 	var direction: Vector2 = Vector2.ZERO
 	direction.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -75,6 +80,7 @@ func on_ship_area_entered(area: Object) -> void:
 				
 			"speed":
 				stats.update_speed(area.collectable_value)
+				instance_ship_effect()
 				
 			"coin":
 				stats.update_coin(area.collectable_value)
@@ -88,9 +94,21 @@ func on_ship_area_entered(area: Object) -> void:
 		
 	if area.is_in_group("enemy_ship"):
 		stats.update_health(area.damage)
-		area.queue_free()
+		area.kill()
 		
 		
+func instance_ship_effect() -> void:
+	var effect: Object = ship_effect.instance()
+	effect.frame = sprite.frame
+	effect.texture = sprite.texture
+	effect.global_position = global_position
+	get_tree().root.call_deferred("add_child", effect)
+	
+	
+func spawn_effect_flag() -> void:
+	effect_flag = !effect_flag
+	
+	
 func can_attack() -> void:
 	attack_flag = true
 	
